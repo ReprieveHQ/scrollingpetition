@@ -179,13 +179,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </footer>
   </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
   <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
   <script>
+
     // Petition counter
 
-    $(document).ready(function() {
+    jQuery(document).ready(function( $ ) {
 
       function count_signups(signup_form_id) {
 
@@ -256,13 +257,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     });
 
-
     // Expander
 
-    $('#expand').on('click', function(e) {
-      $('#expand-box').toggleClass("toggle-expand");
-      $('#expand-minus').toggleClass("toggle-expand");
-      $('#expand-plus').toggleClass("toggle-collapse");
+    jQuery('#expand').on('click', function(e) {
+      jQuery('#expand-box').toggleClass("toggle-expand");
+      jQuery('#expand-minus').toggleClass("toggle-expand");
+      jQuery('#expand-plus').toggleClass("toggle-collapse");
       e.preventDefault();
     });
 
@@ -314,20 +314,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           SLIDE 1
     **/
 
-    $("#optin_1").change(function() {
-      if ($(this).is(":checked")) {
-        $('#email_opt').prop('checked', true);
+    jQuery("#optin_1").change(function() {
+      if (jQuery(this).is(":checked")) {
+        jQuery('#email_opt').prop('checked', true);
       }
     });
 
 
-    $("#optin_0").change(function() {
-      if ($(this).is(":checked")) {
-        $('#email_opt').prop('checked', false);
+    jQuery("#optin_0").change(function() {
+      if (jQuery(this).is(":checked")) {
+        jQuery('#email_opt').prop('checked', false);
       }
     });
 
-    $('#user_info_form').validate({
+    jQuery('#user_info_form').validate({
       submitHandler: function submitHandler(form, e) {
         e.preventDefault();
 
@@ -406,7 +406,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     //   initSlider();
     // });
 
-    $('.twitter_share').click(function(e) {
+    jQuery('.twitter_share').click(function(e) {
       var currentUrl = encodeURIComponent(getPathFromUrl(window.location.href));
       var tweet = encodeURIComponent("No one should be executed for protesting. Sign @Reprieve petition to save lives now before Saudi prince visits the UK #StopSaudiExecutions");
       var space = encodeURIComponent(" ");
@@ -417,12 +417,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     https: //twitter.com/intent/tweet?text=
 
-      $('.twitter_share').click(function(e) {
+      jQuery('.twitter_share').click(function(e) {
         nextSlide('.slide2');
         initSlider();
       });
 
-    $('#slide2_skip').click(function(e) {
+    jQuery('#slide2_skip').click(function(e) {
       e.preventDefault();
       nextSlide('.slide2');
       initSlider();
@@ -448,18 +448,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     };
 
     var nextSlide = function nextSlide(el) {
-      var marginHeight = $('.top_margin').height();
-      var nextSlide = $(el).closest('.slide').next();
+      var marginHeight = jQuery('.top_margin').height();
+      var nextSlide = jQuery(el).closest('.slide').next();
       if (el === '.slide1') {
-        $('.first_name').html(userInfo.firstname);
+        jQuery('.first_name').html(userInfo.firstname);
       }
       nextSlide.show();
-      $.scrollTo(nextSlide, 1000, {});
+      jQuery.scrollTo(nextSlide, 1000, {});
     };
 
     var initSlider = function initSlider() {
-      var handle = $("#custom-handle");
-      $("#slider").slider({
+      var handle = jQuery("#custom-handle");
+      jQuery("#slider").slider({
         min: 0,
         max: 3000,
         step: 1,
@@ -479,7 +479,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     **/
     var userInfo = {};
 
-    $(function() {
+    jQuery(function() {
 
 
       var doc = document.documentElement;

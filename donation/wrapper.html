@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reprieve</title>
+  <link href="/page/-/images/favicon.ico" rel="icon" type="image/x-icon" />
+  <meta name="description" content="Reprieve delivers justice and saves lives, from death row to Guantanamo Bay." />
+  <meta property="og:site_name" content="Reprieve">
+  <meta property="og:description" content="Reprieve delivers justice and saves lives, from death row to Guantanamo Bay." />
+  <meta property="og:title" content="Reprieve" />
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@ReprieveUK">
+  <meta name="twitter:title" content="Reprieve">
+  <meta name="twitter:description" content="Reprieve delivers justice and saves lives, from death row to Guantanamo Bay.">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,400italic,600italic" rel="stylesheet" type="text/css">
+  <link href="https://act.reprieve.org.uk/page/-/images/apple-touch-icon.png" rel="apple-touch-icon" />
+  <link href="https://act.reprieve.org.uk/page/-/images/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+  <link href="https://act.reprieve.org.uk/page/-/images/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+
+  <style type="text/css">
+    /* Basics */
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 30px;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .video-container iframe,
+    .video-container object,
+    .video-container embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+
+    /* Progress bar */
+
+    .goal-progress {
+      display: none;
+    }
+
+    .progress-1,
+    .progress-2 {
+      width: 100% !important;
+      height: 15px !important;
+    }
+
+    .progress-wrap,
+    .progress-wrap-2 {
+      background: #e35e14;
+      margin: 10px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-wrap .progress-bar,
+    .progress-wrap .progress-bar-2,
+    .progress-wrap-2 .progress-bar,
+    .progress-wrap-2 .progress-bar-2 {
+      background: gray;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    .goal-progress {
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+      margin: 0 auto;
+      color: black;
+      font-size: 18px;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    .amount,
+    .goal,
+    .pound,
+    .percentage-number {
+      font-weight: bold;
+      color: #e35e14;
+    }
+
+    .goal-progress {
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+      margin: 0 auto;
+    }
+
+    .amount {
+      font-size: 32px;
+    }
+
+    #totaliser {
+      display: none;
+    }
+
+    .amount,
+    .goal,
+    .pound,
+    .percentage-number {
+      font-weight: bold;
+      color: #e35e14;
+    }
+
+    /* Read more */
+
+    span#read-more {
+      font-size: 14px !important;
+    }
+
+    span#read-more-plus {
+      font-size: 14px !important;
+      color: #e35e14;
+      font-weight: 900;
+      display: inline;
+    }
+
+    span#read-more-plus.uncollapsed {
+      display: none;
+    }
+
+    span#read-more-minus {
+      font-size: 14px !important;
+      color: #e35e14;
+      font-weight: 900;
+      display: none;
+    }
+
+    span#read-more-minus.uncollapsed {
+      display: inline;
+    }
+
+    #read-more-collapse.uncollapsed {
+      display: block;
+    }
+
+    #read-more-collapse {
+      display: none;
+    }
+
+    #read-more-collapse.show {
+      display: block;
+    }
+
+    #signup {
+      margin: 0;
+    }
+
+    /* Petition text */
+
+    .petition-sidebar-text {
+      display: none;
+      border-top: 3px solid #ceccc9;
+      border-bottom: 3px solid #ceccc9;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+
+    .petition-intro-text {
+      border-top: 3px solid #ceccc9;
+      border-bottom: 3px solid #ceccc9;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+
+    .petition-intro-text p {
+      margin-bottom: 0;
+      font-size: 18px;
+    }
+
+    /* Forms */
+/*
+    td#required_note {
+      display: none;
+    }
+
+    #issues .label label {
+      margin: 0;
+    }
+
+    .fieldset {
+      margin: 0px 0px 5px 0px;
+    }
+
+    div#bsd-field-submit-btn {
+      margin-bottom: 1rem;
+    }
+
+    select {
+      background: none;
+    }
+
+    #issues .label label {
+      white-space: normal;
+    }
+
+    #bsd-field-submit-btn input[type="submit"] {
+      width: 100%;
+    }
+
+    div#bsd-field-submit-btn {
+      margin-bottom: 0;
+    }
+
+    #bsd-field-email_opt_in .label {
+      padding: 0;
+    }
+
+    .input input[type=checkbox],
+    .input input[type=radio] {
+      margin: 5px 5px 0 0;
+    }
+
+    #signup .checkbox,
+    #signup .radiobutton,
+    #signup .label,
+    #signup .text {
+      margin: 0;
+    }
+
+    #signup .label {
+      padding: 0px 0 5px 0;
+    }
+
+    span.error.bsd-mailcheck {
+      margin: 5px 0 0px 0;
+      display: block;
+    }
+
+    div#bsd-field-submit-btn {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }*/
+
+    /* Floating button */
+
+    .floating-button {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 999;
+      background: #e35e14;
+      width: 100%;
+      text-align: center;
+      color: white;
+    }
+
+    #issues .floating-button p {
+      text-align: center;
+      color: white;
+      margin: 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .reveal-back {
+      background: white;
+      width: 100%;
+      border-top: 2px solid #e3e3e3;
+      border-bottom: 2px solid #e3e3e3;
+      display: none;
+    }
+
+    #issues .reveal-back span {
+      display: block;
+      margin: 0;
+      padding: 0.5rem;
+    }
+
+    .colhide {
+      display: none;
+    }
+
+    .colshow {
+      display: block;
+    }
+
+
+    /* FOOTER */
+
+      #footer {
+        z-index: 999;
+        background-color: #3c3b39;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-family: "effra", "Helvetica Neue", helvetica, arial, sans-serif;
+        font-weight: 500;
+        -moz-font-feature-settings: "kern=1";
+        -webkit-font-feature-settings: "kern" 1;
+        text-rendering: optimizeLegibility;
+        color: #cbc3b7;
+        padding: 1rem 0;
+        line-height: 1rem;
+        font-size: 0.9rem;
+        position: relative;
+      }
+
+
+      footer p {
+        margin: 0;
+      }
+
+      footer a {
+        color: #cbc3b7;
+      }
+
+      footer a:hover {
+        color: #cbc3b7;
+      }
+
+      .fnav_sub_primary {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+      }
+
+      .fnav_sub_primary,
+      .fnav_sub_secondary {
+        float: left;
+      }
+
+      .fnav_sub_primary li {
+        float: left;
+        display: block;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        width: 100%;
+      }
+
+      @media (min-width: 992px) {
+
+        #footer {
+          position: fixed;
+          bottom: 0;
+        }
+
+        .fnav_sub_secondary {
+          float: right;
+        }
+        .fnav_sub_primary li {
+          margin-bottom: 0rem;
+          width: auto;
+        }
+      }
+
+
+    /* BREAK */
+
+    header {
+      z-index: 999;
+      background: #e35e14;
+      padding: 10px 0;
+    }
+
+    header:before,
+    header:after {
+      display: table;
+      content: "";
+      clear: both;
+    }
+
+    .clean-logo img {
+      height: 40px;
+    }
+
+    .footer_align {
+      background: white;
+    }
+
+    nav.fnav {
+      display: none;
+    }
+
+    .fnav_sub {
+      margin-top: 0;
+    }
+
+
+
+
+
+    /* START */
+
+    /*#issues span.error {
+      color: red;
+      font-weight: bold;
+    }
+
+    table#signuptable {
+      display: none;
+    }
+
+    strong,
+    b {
+      color: #e35e14;
+    }
+
+    input[type=text],
+    input[type=email] {
+      width: 90%;
+    }
+
+    input#processbutton {
+      background: #e35e14;
+      -webkit-appearance: none;
+      color: white;
+      border: 0;
+      padding: 0.5rem 1rem;
+      font-size: 1.5rem;
+      min-width: 200px;
+    }
+
+    tr.bsd-tableRow td.label {
+      width: 100%;
+    }
+
+    .creditCardTypeSelector-creditCardList:before,
+    .creditCardTypeSelector-creditCardList:after {
+      display: table;
+      content: "";
+      clear: both;
+    }
+
+    .creditCardTypeSelector-creditCardList {
+      margin-bottom: 0.5rem;
+    }
+
+    #contribution td.contribcolumn {
+      width: 100% !important;
+      display: block;
+    }
+
+    input#firstname,
+    input#lastname {
+      width: 200px;
+    }
+
+    #contribution .nested_table td {
+      display: block;
+    }
+
+    input#amt_other_text {
+      width: 200px;
+    }
+
+    #issues label {
+      text-transform: none;
+      font-weight: normal;
+    }
+
+    #contribution td.contribcolumn label {
+      text-transform: capitalize;
+      font-weight: bold;
+    }
+
+    .bsd-contribForm-belowContent p {
+      font-size: 0.9rem;
+    }
+
+    input#processbutton {
+      margin: 1rem 0;
+    }
+
+    #issues input[type=text],
+    #issues input[type=email],
+    #issues textarea {
+      background: transparent;
+      -webkit-appearance: none;
+      border: 2px solid #aaa;
+      border-radius: 0;
+      padding: 0.5rem;
+      box-sizing: border-box;
+    }
+
+    #contribution td td td {
+      max-width: 100%;
+      display: block;
+    }
+
+    input#cc_cvv {
+      max-width: 300px;
+      margin-bottom: 0.5rem;
+    }
+
+    #contribution td,
+    #contribution th {
+      display: block;
+    }
+
+    span#full-gift-label {
+      text-transform: none;
+    }
+
+    #home #wrapper,
+    #home #content {
+      background: #f2f0ed !important;
+    }
+
+    select {
+      font-size: 1rem;
+      min-height: 43px !important;
+      -webkit-appearance: none;
+      background: transparent;
+      -webkit-appearance: none;
+      border: 2px solid #aaa;
+      border-radius: 0;
+      padding: 0.5rem;
+      box-sizing: border-box;
+    }
+
+    #contribution td.contribheader,
+    #contribution #pa_status {
+      border-bottom: 3px solid #e35e14;
+      margin-bottom: 1rem;
+    }
+
+    #contribution td.contribcolumn label {
+      display: block;
+    }
+
+    #contribution table.amounts nobr label {
+      display: inline-block;
+      width: auto;
+      clear: none;
+      margin: 0 0 0 0.5rem;
+    }
+
+    input[type=checkbox],
+    input[type=radio] {
+      display: inline;
+      width: auto;
+      clear: none;
+    }
+
+    .checkbox,
+    .radio {
+      display: inline;
+    }
+
+    #full-gift-container label {
+      display: inline-block !important;
+      margin-left: 0.5rem;
+    }
+
+    a.popuphelp {
+      display: none;
+    }
+
+    tr#bsd-contribution-section-header-giftaid label {
+      display: inline-block !important;
+    }
+
+    #issues label[for=qf_b8d989] {
+      display: inline;
+    }
+
+    input#qf_b8d989 {
+      margin-right: 0.5rem;
+    }
+
+    .creditCardTypeSelector-creditCardTextBox {
+      display: block !important;
+    }
+
+    input#credit_card-creditCardNumberTextBox {
+      /* float:  left; */
+      /*display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    td.label {
+      padding: 0;
+    }
+
+    #contribution td.contribcolumn label {
+      margin-bottom: 0;
+    }
+
+    section#issues {
+      padding: 1rem !important;
+    }
+
+    .giftaidWrap label {
+      display: inline;
+    }
+
+    .giftaidWrap input {
+      margin-right: 0.5rem;
+    }
+
+    input#processbutton {
+      border-radius: 2px;
+    }
+
+    .bsd-contribForm-belowContent p {
+      font-size: 0.75rem !important;
+    }
+
+    span#full-gift-label {
+      margin: 0 !important;
+    }
+
+    #full-gift-container label {
+      margin: 0;
+      display: inline !important;
+    }
+
+    input#full-gift-checkbox {
+      margin-right: 0.5rem;
+    }
+
+    input#firstname,
+    input#lastname {
+      width: 90%;
+      max-width: 250px;
+    }
+
+    input:focus,
+    input:hover,
+    select:focus,
+    select:hover {
+      outline: none;
+    }
+
+    #cc_expir_month,
+    #cc_expir_year {
+      width: 100%;
+      max-width: 250px;
+      margin-bottom: 1rem;
+      margin-right: 1rem;
+    }
+
+    input#cc_cvv {
+      max-width: 250px;
+    }*/*/
+
+    /* NEWWEST */
+
+    header, footer {
+    width: 100%;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+#footer {
+    position: static;
+}
+
+    .fixed-background {
+    position: fixed;
+    top: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+/* Amounts */
+
+#contribution .amountWraps label {
+    background: #e35e14;
+    padding: 1rem 2rem;
+    margin: 0 0 1rem 0;
+    min-width: 100%;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+}
+
+#contribution .amountWraps span.radio {
+    display: inline-block;
+    margin: 0;
+    line-height: normal;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#contribution .amountWraps input[type=radio] {
+    margin: 0;
+    display: none;
+}
+
+
+#amt_other_wrap #amt_other_text {
+    margin: 0 0.5rem;
+    background: #e35e14;
+    border: 0;
+    padding: 0 0.25rem;
+    color: white;
+    border-bottom: 3px solid white;
+    box-sizing: border-box;
+    width: 50%;
+    display:  inline-block;
+}
+
+#amt_other_wrap #amt_other_text:focus, #amt_other_wrap #amt_other_text:hover {
+    outline: none;
+}
+
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <div class="main-wrap">
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="clean-logo">
+              <a href="http://www.reprieve.org.uk" target="_blank"><img src="https://reprieve.org.uk/wp-content/themes/reprieve/assets/images/logo-white@2x.png"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="content-wrap">
+      <div class="container">
