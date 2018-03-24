@@ -667,6 +667,9 @@
 
     #footer {
       position: static;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
     }
 
     .fixed-background {
@@ -783,11 +786,6 @@
     .creditCardTypeSelector label {
       display: none;
     }
-
-    form#contribution {
-      min-height: 600px;
-    }
-
     #contribution .amountWraps label.labelSelect {
       background: #3c3b39;
     }
@@ -978,6 +976,65 @@ nav#mobilemenu ul li a:hover {
     margin-right:  0.5rem;
     text-transform: capitalize;
     margin-bottom:  0.5rem;
+}
+
+.donation-block {
+    transform: translate(9999px);
+    position:  fixed;
+}
+
+.showDonate {
+    transform: translate(0);
+    position:  static;
+}
+
+.cc-select-wrap {
+    clear:  both;
+}
+
+#payment-details-back {
+    margin-top:  0;
+    margin-bottom:  1rem;
+}
+
+.donate-nav.disabled {
+    background: #efefef;
+    color: #3c3b39;
+}
+
+.donate-nav-next {
+    background:  #e35e14;
+    color: white;
+}
+
+.donate-nav-back {
+    background:  #efefef;
+    color: #3c3b39;
+}
+
+.content-wrap {
+    min-height:  calc(100vh - 120px);
+}
+
+.content-wrap {
+    min-height:  calc(100vh - 120px);
+}
+
+.bsd-contribForm-aboveContent,.bsd-contribForm-belowContent {
+    color: white
+}
+
+.main-wrap {
+    background: url(https://s.bsd.net/reprieve/main/page/-/gtmobw.png) !important;
+    background-size: cover;
+}
+
+.content-wrap {
+    background: rgba(0,0,0,0.3) !important;
+}
+
+.donation-block {
+    background: rgba(228, 228, 228, 0.8);
 }
 
   </style>
